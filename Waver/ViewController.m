@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "Waver.h"
 
 @interface ViewController ()
 
@@ -16,6 +17,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    Waver * waver = [[Waver alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 100)];
+    waver.waverManLevelCallback = ^() {
+        NSLog(@"Hello");
+    };
+    [self.view addSubview:waver];
     // Do any additional setup after loading the view, typically from a nib.
 }
 

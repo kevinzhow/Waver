@@ -14,6 +14,7 @@
 		0AE3A3261A3CCEA100FD562D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AE3A3251A3CCEA100FD562D /* Images.xcassets */; };
 		0AE3A3291A3CCEA100FD562D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AE3A3271A3CCEA100FD562D /* LaunchScreen.xib */; };
 		0AE3A3351A3CCEA100FD562D /* WaverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE3A3341A3CCEA100FD562D /* WaverTests.m */; };
+		0AE3A3401A3CEC6700FD562D /* Waver.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE3A33F1A3CEC6700FD562D /* Waver.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		0AE3A32E1A3CCEA100FD562D /* WaverTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WaverTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AE3A3331A3CCEA100FD562D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AE3A3341A3CCEA100FD562D /* WaverTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WaverTests.m; sourceTree = "<group>"; };
+		0AE3A33E1A3CEC6700FD562D /* Waver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Waver.h; path = Source/Waver.h; sourceTree = "<group>"; };
+		0AE3A33F1A3CEC6700FD562D /* Waver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Waver.m; path = Source/Waver.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,7 @@
 		0AE3A3171A3CCEA100FD562D /* Waver */ = {
 			isa = PBXGroup;
 			children = (
+				0AE3A3411A3CEC6B00FD562D /* Source */,
 				0AE3A31C1A3CCEA100FD562D /* AppDelegate.h */,
 				0AE3A31D1A3CCEA100FD562D /* AppDelegate.m */,
 				0AE3A31F1A3CCEA100FD562D /* ViewController.h */,
@@ -117,6 +121,15 @@
 				0AE3A3331A3CCEA100FD562D /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0AE3A3411A3CEC6B00FD562D /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				0AE3A33E1A3CEC6700FD562D /* Waver.h */,
+				0AE3A33F1A3CEC6700FD562D /* Waver.m */,
+			);
+			name = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +235,7 @@
 				0AE3A3211A3CCEA100FD562D /* ViewController.m in Sources */,
 				0AE3A31E1A3CCEA100FD562D /* AppDelegate.m in Sources */,
 				0AE3A31B1A3CCEA100FD562D /* main.m in Sources */,
+				0AE3A3401A3CEC6700FD562D /* Waver.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
