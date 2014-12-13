@@ -17,6 +17,8 @@
 
 @property (nonatomic) UIColor * waveColor;
 
+@property (nonatomic) CGFloat level;
+
 @property (nonatomic) CGFloat mainWaveWidth;
 
 @property (nonatomic) CGFloat decorativeWavesWidth;

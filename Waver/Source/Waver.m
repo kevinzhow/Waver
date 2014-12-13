@@ -55,14 +55,27 @@
     self.waveColor = [UIColor whiteColor];
     self.mainWaveWidth = 2.0f;
     self.decorativeWavesWidth = 1.0f;
-    
 }
 
 -(void)setWaverLevelCallback:(void (^)())waverLevelCallback
 {
     _waverLevelCallback = waverLevelCallback;
+    
     CADisplayLink *displaylink = [CADisplayLink displayLinkWithTarget:_waverLevelCallback selector:@selector(invoke)];
     [displaylink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+}
+
+- (void)setLevel:(CGFloat)level
+{
+    _level = level;
+    self.phase += self.phaseShift;
+    self.amplitude = fmax( level, self.idleAmplitude);
+    [self updateMeters];
+}
+
+- (void)updateMeters
+{
+    NSLog(@"Level is %f", self.level);
 }
 
 /*
