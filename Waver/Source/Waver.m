@@ -97,7 +97,6 @@
     CGFloat width = CGRectGetWidth(self.bounds);
     CGFloat mid = width / 2.0f;
     
-    
     for(int i=0; i < self.numberOfWaves; i++) {
         UIGraphicsBeginImageContext(self.frame.size);
         

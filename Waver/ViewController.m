@@ -26,7 +26,7 @@
     
     self.view.backgroundColor = [UIColor grayColor];
     
-    Waver * waver = [[Waver alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds))];
+    Waver * waver = [[Waver alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.bounds)/2.0 - 50.0, CGRectGetWidth(self.view.bounds), 100.0)];
     
     __weak Waver * weakWaver = waver;
     waver.waverLevelCallback = ^() {
