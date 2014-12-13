@@ -11,7 +11,7 @@
 
 @interface Waver : UIView
 
-@property (nonatomic, copy) void (^waverManLevelCallback)();
+@property (nonatomic, copy) void (^waverLevelCallback)();
 
 @property (nonatomic) NSUInteger numberOfWaves;
 

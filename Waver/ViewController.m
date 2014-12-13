@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     Waver * waver = [[Waver alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 100)];
-    waver.waverManLevelCallback = ^() {
+    waver.waverLevelCallback = ^() {
         NSLog(@"Hello");
     };
     [self.view addSubview:waver];

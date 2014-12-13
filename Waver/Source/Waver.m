@@ -58,11 +58,10 @@
     
 }
 
--(void)setWaverManLevelCallback:(void (^)())waverManLevelCallback
+-(void)setWaverLevelCallback:(void (^)())waverLevelCallback
 {
-    _waverManLevelCallback = waverManLevelCallback;
-    
-    CADisplayLink *displaylink = [CADisplayLink displayLinkWithTarget:_waverManLevelCallback selector:@selector(invoke)];
+    _waverLevelCallback = waverLevelCallback;
+    CADisplayLink *displaylink = [CADisplayLink displayLinkWithTarget:_waverLevelCallback selector:@selector(invoke)];
     [displaylink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
 }
 
