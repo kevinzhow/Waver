@@ -24,7 +24,9 @@
     
     [self setupRecorder];
     
-    Waver * waver = [[Waver alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 100)];
+    self.view.backgroundColor = [UIColor grayColor];
+    
+    Waver * waver = [[Waver alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds))];
     
     __weak Waver * weakWaver = waver;
     waver.waverLevelCallback = ^() {
@@ -32,8 +34,6 @@
         [self.recorder updateMeters];
         
         CGFloat normalizedValue = pow (10, [self.recorder averagePowerForChannel:0] / 20);
-        
-        NSLog(@"Nomalized values is %f", normalizedValue);
         
         weakWaver.level = normalizedValue;
         
