@@ -51,14 +51,14 @@
     
     self.waves = [NSMutableArray new];
     
-    self.frequency = 1.5f;
+    self.frequency = 1.2f;
     
     self.amplitude = 1.0f;
     self.idleAmplitude = 0.01f;
     
     self.numberOfWaves = 5;
-    self.phaseShift = -0.15f;
-    self.density = 5.f;
+    self.phaseShift = -0.25f;
+    self.density = 1.f;
     
     self.waveColor = [UIColor whiteColor];
     self.mainWaveWidth = 2.0f;
@@ -87,7 +87,7 @@
         [waveline setLineWidth:(i==0 ? self.mainWaveWidth : self.decorativeWavesWidth)];
         CGFloat progress = 1.0f - (CGFloat)i / self.numberOfWaves;
         CGFloat multiplier = MIN(1.0, (progress / 3.0f * 2.0f) + (1.0f / 3.0f));
-        waveline.strokeColor   = [[UIColor colorWithWhite:1.0 alpha:( i == 0 ? 1.0 : 1.0 * multiplier *0.5)] CGColor];
+        waveline.strokeColor   = [[UIColor colorWithWhite:1.0 alpha:( i == 0 ? 1.0 : 1.0 * multiplier * 0.4)] CGColor];
         [self.layer addSublayer:waveline];
         [self.waves addObject:waveline];
     }
