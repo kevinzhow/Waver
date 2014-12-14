@@ -22,9 +22,9 @@ You will need LLVM 3.0 or later in order to build Waver.
 
 ### Cocoapods
 
-[CocoaPods](http://cocoapods.org) is the recommended way to add PNChart to your project.
+[CocoaPods](http://cocoapods.org) is the recommended way to add Waver to your project.
 
-1. Add a pod entry for PNChart to your Podfile `pod 'Waver', '~> 0.1.0'`
+1. Add a pod entry for Waver to your Podfile `pod 'Waver', '~> 0.1.0'`
 2. Install the pod(s) by running `pod install`.
 3. Include Waver wherever you need it with `#import "Waver.h"`.
 
