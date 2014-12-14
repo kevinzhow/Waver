@@ -33,7 +33,7 @@
         
         [self.recorder updateMeters];
         
-        CGFloat normalizedValue = pow (10, [self.recorder averagePowerForChannel:0] / 20);
+        CGFloat normalizedValue = pow (10, [self.recorder averagePowerForChannel:0] / 50);
         
         weakWaver.level = normalizedValue;
         
