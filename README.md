@@ -4,9 +4,7 @@
 
 A Siri like wave effect
 
-<video width="375" height="667" controls poster="https://dl.dropboxusercontent.com/u/1599662/waver/waver.png">
-  <source src="https://dl.dropboxusercontent.com/u/1599662/waver/wave.mov" type="video/mp4">
-</video>
+[![](https://dl.dropboxusercontent.com/u/1599662/waver/waver.png)](https://dl.dropboxusercontent.com/u/1599662/waver/wave.mov)
 
 ## Requirements
 
