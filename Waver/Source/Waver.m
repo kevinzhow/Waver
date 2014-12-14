@@ -64,7 +64,7 @@
     self.mainWaveWidth = 2.0f;
     self.decorativeWavesWidth = 1.0f;
     
-    self.waveHeight = CGRectGetHeight(self.bounds) * 0.9;
+    self.waveHeight = CGRectGetHeight(self.bounds) * 0.98;
     self.waveWidth  = CGRectGetWidth(self.bounds);
     self.waveMid    = self.waveWidth / 2.0f;
     self.maxAmplitude = self.waveHeight - 4.0f;
@@ -105,9 +105,10 @@
 
 - (void)updateMeters
 {
+    UIGraphicsBeginImageContext(self.frame.size);
     
     for(int i=0; i < self.numberOfWaves; i++) {
-        UIGraphicsBeginImageContext(self.frame.size);
+
         
         UIBezierPath *wavelinePath = [UIBezierPath bezierPath];
 
@@ -135,9 +136,11 @@
         CAShapeLayer *waveline = [self.waves objectAtIndex:i];
         waveline.path = [wavelinePath CGPath];
 
-        UIGraphicsEndImageContext();
+
         
     }
+    
+    UIGraphicsEndImageContext();
 }
 
 /*
