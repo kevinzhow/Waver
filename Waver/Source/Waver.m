@@ -97,7 +97,9 @@
 - (void)setLevel:(CGFloat)level
 {
     _level = level;
-    self.phase += self.phaseShift;
+    
+    self.phase += self.phaseShift; // Move the wave
+    
     self.amplitude = fmax( level, self.idleAmplitude);
     [self updateMeters];
 }
@@ -121,7 +123,7 @@
             
             //Thanks to https://github.com/stefanceriu/SCSiriWaveformView
             // We use a parable to scale the sinus wave, that has its peak in the middle of the view.
-            CGFloat scaling = -pow(1 / self.waveMid * (x - self.waveMid), 2) + 1; // make center bigger
+            CGFloat scaling = -pow(x / self.waveMid  - 1, 2) + 1; // make center bigger
             
             CGFloat y = scaling * self.maxAmplitude * normedAmplitude * sinf(2 * M_PI *(x / self.waveWidth) * self.frequency + self.phase) + self.waveHeight;
             
