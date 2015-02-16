@@ -64,7 +64,7 @@
     self.mainWaveWidth = 2.0f;
     self.decorativeWavesWidth = 1.0f;
     
-    self.waveHeight = CGRectGetHeight(self.bounds) * 0.98;
+	self.waveHeight = CGRectGetHeight(self.bounds);
     self.waveWidth  = CGRectGetWidth(self.bounds);
     self.waveMid    = self.waveWidth / 2.0f;
     self.maxAmplitude = self.waveHeight - 4.0f;
@@ -108,6 +108,11 @@
 
 - (void)updateMeters
 {
+	self.waveHeight = CGRectGetHeight(self.bounds);
+	self.waveWidth  = CGRectGetWidth(self.bounds);
+	self.waveMid    = self.waveWidth / 2.0f;
+	self.maxAmplitude = self.waveHeight - 4.0f;
+	
     UIGraphicsBeginImageContext(self.frame.size);
     
     for(int i=0; i < self.numberOfWaves; i++) {
@@ -126,7 +131,7 @@
             // We use a parable to scale the sinus wave, that has its peak in the middle of the view.
             CGFloat scaling = -pow(x / self.waveMid  - 1, 2) + 1; // make center bigger
             
-            CGFloat y = scaling * self.maxAmplitude * normedAmplitude * sinf(2 * M_PI *(x / self.waveWidth) * self.frequency + self.phase) + self.waveHeight;
+            CGFloat y = scaling * self.maxAmplitude * normedAmplitude * sinf(2 * M_PI *(x / self.waveWidth) * self.frequency + self.phase) + (self.waveHeight * 0.5);
             
             if (x==0) {
                 [wavelinePath moveToPoint:CGPointMake(x, y)];
