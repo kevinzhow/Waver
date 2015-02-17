@@ -75,7 +75,7 @@
     _waverLevelCallback = waverLevelCallback;
     
     CADisplayLink *displaylink = [CADisplayLink displayLinkWithTarget:_waverLevelCallback selector:@selector(invoke)];
-    [displaylink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+    [displaylink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     
     for(int i=0; i < self.numberOfWaves; i++)
     {
