@@ -11,7 +11,7 @@
 
 @interface Waver : UIView
 
-@property (nonatomic, copy) void (^waverLevelCallback)();
+@property (nonatomic, copy) void (^waverLevelCallback)(Waver * waver);
 
 //
 

@@ -70,11 +70,10 @@
     self.maxAmplitude = self.waveHeight - 4.0f;
 }
 
--(void)setWaverLevelCallback:(void (^)())waverLevelCallback
-{
+- (void)setWaverLevelCallback:(void (^)(Waver * waver))waverLevelCallback {
     _waverLevelCallback = waverLevelCallback;
     
-    CADisplayLink *displaylink = [CADisplayLink displayLinkWithTarget:_waverLevelCallback selector:@selector(invoke)];
+    CADisplayLink *displaylink = [CADisplayLink displayLinkWithTarget:self selector:@selector(invokeWaveCallback)];
     [displaylink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
     
     for(int i=0; i < self.numberOfWaves; i++)
@@ -92,6 +91,10 @@
         [self.waves addObject:waveline];
     }
     
+}
+
+-(void)invokeWaveCallback {
+    _waverLevelCallback(self);
 }
 
 - (void)setLevel:(CGFloat)level

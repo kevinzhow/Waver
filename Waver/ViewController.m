@@ -28,14 +28,13 @@
     
     Waver * waver = [[Waver alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.bounds)/2.0 - 50.0, CGRectGetWidth(self.view.bounds), 100.0)];
     
-    __weak Waver * weakWaver = waver;
-    waver.waverLevelCallback = ^() {
+    waver.waverLevelCallback = ^(Waver * waver) {
         
         [self.recorder updateMeters];
         
         CGFloat normalizedValue = pow (10, [self.recorder averagePowerForChannel:0] / 40);
         
-        weakWaver.level = normalizedValue;
+        waver.level = normalizedValue;
         
     };
     [self.view addSubview:waver];
