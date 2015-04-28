@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "Waver"
-  s.version      = "0.2.0"
+  s.version      = "0.3.0"
   s.summary      = "A Siri Like Wave Effect"
 
   s.description  = <<-DESC
@@ -86,7 +86,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/kevinzhow/Waver.git", :tag => "0.2.0" }
+  s.source       = { :git => "https://github.com/kevinzhow/Waver.git", :tag => "0.3.0" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
