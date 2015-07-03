@@ -17,7 +17,7 @@
 @property (nonatomic) CGFloat waveWidth;
 @property (nonatomic) CGFloat waveMid;
 @property (nonatomic) CGFloat maxAmplitude;
-@property (nonatomic) CADisplayLink *displaylink;
+@property (nonatomic, strong) CADisplayLink *displayLink;
 
 @end
 
@@ -49,7 +49,6 @@
 
 - (void)setup
 {
-    
     self.waves = [NSMutableArray new];
     
     self.frequency = 1.2f;
@@ -73,9 +72,10 @@
 
 - (void)setWaverLevelCallback:(void (^)(Waver * waver))waverLevelCallback {
     _waverLevelCallback = waverLevelCallback;
-    
-    _displaylink = [CADisplayLink displayLinkWithTarget:self selector:@selector(invokeWaveCallback)];
-    [_displaylink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+
+    [self.displayLink invalidate];
+    self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(invokeWaveCallback)];
+    [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
     
     for(int i=0; i < self.numberOfWaves; i++)
     {
@@ -95,8 +95,9 @@
     
 }
 
--(void)invokeWaveCallback {
-    _waverLevelCallback(self);
+- (void)invokeWaveCallback
+{
+    self.waverLevelCallback(self);
 }
 
 - (void)setLevel:(CGFloat)level
@@ -121,7 +122,6 @@
     
     for(int i=0; i < self.numberOfWaves; i++) {
 
-        
         UIBezierPath *wavelinePath = [UIBezierPath bezierPath];
 
         // Progress is a value between 1.0 and -0.5, determined by the current wave idx, which is used to alter the wave's amplitude.
@@ -147,24 +147,14 @@
         
         CAShapeLayer *waveline = [self.waves objectAtIndex:i];
         waveline.path = [wavelinePath CGPath];
-
-
-        
     }
     
     UIGraphicsEndImageContext();
 }
 
-- (void)dealloc {
-    [_displaylink invalidate];
+- (void)dealloc
+{
+    [_displayLink invalidate];
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
 @end
