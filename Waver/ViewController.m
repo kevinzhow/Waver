@@ -28,11 +28,13 @@
     
     Waver * waver = [[Waver alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.bounds)/2.0 - 50.0, CGRectGetWidth(self.view.bounds), 100.0)];
     
+    __block AVAudioRecorder *weakRecorder = self.recorder;
+    
     waver.waverLevelCallback = ^(Waver * waver) {
         
-        [self.recorder updateMeters];
+        [weakRecorder updateMeters];
         
-        CGFloat normalizedValue = pow (10, [self.recorder averagePowerForChannel:0] / 40);
+        CGFloat normalizedValue = pow (10, [weakRecorder averagePowerForChannel:0] / 40);
         
         waver.level = normalizedValue;
         
