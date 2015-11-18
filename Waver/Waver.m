@@ -74,7 +74,7 @@
     _waverLevelCallback = waverLevelCallback;
 
     [self.displayLink invalidate];
-    self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(invokeWaveCallback)];
+    self.displayLink = [CADisplayLink displayLinkWithTarget:[Proxy proxyWithTarget:self] selector:@selector(invokeWaveCallback)];
     [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
     
     for(int i=0; i < self.numberOfWaves; i++)
@@ -155,6 +155,23 @@
 - (void)dealloc
 {
     [_displayLink invalidate];
+}
+
+@end
+
+@implementation Proxy
+
+- (instancetype)initWithTarget:(id)target {
+    _target = target;
+    return self;
+}
+
++ (instancetype)proxyWithTarget:(id)target {
+    return [[Proxy alloc] initWithTarget:target];
+}
+
+- (id)forwardingTargetForSelector:(SEL)selector {
+    return _target;
 }
 
 @end
