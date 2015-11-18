@@ -40,3 +40,11 @@
 @property (nonatomic, readonly) NSMutableArray * waves;
 
 @end
+
+@interface Proxy : NSProxy
+
+@property (nonatomic, weak, readonly) id target;
+
++ (instancetype)proxyWithTarget:(id)target;
+
+@end
