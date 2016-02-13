@@ -20,7 +20,7 @@ You will need LLVM 3.0 or later in order to build Waver.
 
 ## Usage
 
-### Cocoapods
+### CocoaPods
 
 [CocoaPods](http://cocoapods.org) is the recommended way to add Waver to your project.
 
