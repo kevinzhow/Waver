@@ -47,6 +47,12 @@
     [self setup];
 }
 
+- (void)removeFromSuperview
+{
+    [_displayLink invalidate];
+    _displayLink = nil;
+}
+
 - (void)setup
 {
     self.waves = [NSMutableArray new];
@@ -121,16 +127,13 @@
     UIGraphicsBeginImageContext(self.frame.size);
     
     for(int i=0; i < self.numberOfWaves; i++) {
-
         UIBezierPath *wavelinePath = [UIBezierPath bezierPath];
 
         // Progress is a value between 1.0 and -0.5, determined by the current wave idx, which is used to alter the wave's amplitude.
         CGFloat progress = 1.0f - (CGFloat)i / self.numberOfWaves;
         CGFloat normedAmplitude = (1.5f * progress - 0.5f) * self.amplitude;
 
-        
         for(CGFloat x = 0; x<self.waveWidth + self.density; x += self.density) {
-            
             //Thanks to https://github.com/stefanceriu/SCSiriWaveformView
             // We use a parable to scale the sinus wave, that has its peak in the middle of the view.
             CGFloat scaling = -pow(x / self.waveMid  - 1, 2) + 1; // make center bigger
@@ -151,10 +154,4 @@
     
     UIGraphicsEndImageContext();
 }
-
-- (void)dealloc
-{
-    [_displayLink invalidate];
-}
-
 @end
